@@ -21,6 +21,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.text.Html;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
@@ -204,7 +205,7 @@ public class UpdateDialog extends BaseDialog implements View.OnClickListener {
         final String newVersion = updateEntity.getVersionName();
         String updateInfo = UpdateUtils.getDisplayUpdateInfo(getContext(), updateEntity);
         //更新内容
-        mTvUpdateInfo.setText(updateInfo);
+        mTvUpdateInfo.setText(Html.fromHtml(updateInfo));
         mTvTitle.setText(String.format(getString(R.string.xupdate_lab_ready_update), newVersion));
 
         //如果文件已下载，直接显示安装
